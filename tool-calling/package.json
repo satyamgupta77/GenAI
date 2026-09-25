@@ -9,9 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@tavily/core": "^0.7.12",
+    "express": "^5.2.1",
     "groq-sdk": "^1.6.0"
   }
 }

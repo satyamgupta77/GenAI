@@ -25,9 +25,14 @@ async function main() {
     ];
 
     while (true) {
-        const question = await rl.question('You: ');
-        // bye
-        if (question === 'bye') {
+        let question;
+        try {
+            question = await rl.question('You: ');
+        } catch {
+            break;
+        }
+
+        if (!question || question.trim().toLowerCase() === 'bye') {
             break;
         }
 
@@ -38,7 +43,7 @@ async function main() {
 
         while (true) {
             const completions = await groq.chat.completions.create({
-                model: 'llama-3.3-70b-versatile',
+                model: 'openai/gpt-oss-120b',
                 temperature: 0,
                 messages: messages,
                 tools: [
